@@ -1,0 +1,326 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root{
+    /* light-mode-colors */
+    --primary-color: #0466C8;
+    --unglass-morph: #0466C8;
+    --primary-bg: rgb(234, 234, 234);
+    --primary-text-color: black;
+    --primary-accent-color: #979DAC;
+    --component-bg: white;
+    --shadow: rgba(197, 197, 197, 0.42);
+    /* dark-mode-colors */
+    --dark-mode-primary-color: #0353A4;
+    --dark-mode-bg: #001233;
+    --dark-text: white;
+    --dark-accent: #0466C8;
+    --dark-component: rgb(211, 211, 211);
+    --glass-morph: rgba(81, 81, 81, 0.201);
+    /* main-fonts */
+    --main-font: 'Montserrat', sans-serif;
+}
+
+.dark{
+    --primary-color: var(--dark-mode-primary-color);
+    --primary-bg: var(--dark-mode-bg);
+    --primary-text-color: var(--dark-text);
+    --primary-accent-color: var(--dark-accent);
+    --component-bg: var(--dark-component);
+    --unglass-morph: var(--glass-morph);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: var(--main-font);
+}
+
+body{
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--primary-bg);
+    transition: 1s;
+}
+
+header{
+    display: flex;
+    margin-bottom: 10px;
+}
+
+nav{
+    position: relative;
+    top: 140px;
+    display: flex;
+    align-items: center;
+    background-color: var(--component-bg);
+    box-shadow: 0 0 1rem .5rem var(--shadow);
+    padding: 12px;
+    margin: 5px;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+nav a{
+    color: black;
+}
+
+nav a:hover{
+    color: var(--dark-accent);
+}
+
+nav ul{
+    display: flex;
+    justify-content: center;
+}
+
+header ul li{
+    list-style-type: none;
+    margin-inline: 5px;
+}
+
+.mode{
+    position: relative;
+    top: -130px;
+    display: flex;
+    background-color: var(--component-bg);
+    height: 45px;
+    width: 70px;
+    margin: 5px;
+    font-weight: bold;
+    border-radius: 4px;
+    box-shadow: 0 0 1rem .5rem var(--shadow);
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.mode p{
+    margin-inline: 5px;
+    cursor: pointer;
+    z-index: 99;
+    width: 20px;
+}
+
+.activemode{
+    position: absolute;
+    left: 0;
+    cursor: pointer;
+    z-index: 98;
+    height: 100%;
+    width: 50%;
+    background-color: var(--primary-color);
+    border-radius: 4px 0 0 4px;
+    transition: .7s;
+}
+
+.day{
+    color: white;
+}
+
+
+.card{
+    position: relative;
+    background-color: var(--unglass-morph);
+    width: 350px;
+    height: 220px;
+    color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    z-index: 98;
+}
+.circle{
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    background-color: white;
+    top: 0;
+    right: 0;
+    border-radius: 50%;
+    opacity: .2;
+    filter: blur(30px);
+}
+
+.card p{
+    font-weight: bold;
+    text-wrap: nowrap;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: .5rem;
+    position: absolute;
+    bottom: 15px;
+    margin: 10px;
+}
+
+.card .bg{
+    position: absolute;
+    height: 450px;
+    top: -50%;
+    left: -50%;
+    z-index: 99;
+    opacity: .3;
+}
+
+.icon{
+    position: absolute;
+    height: 100px;
+    opacity: 1;
+    z-index: 99;
+    right: -10px;
+    bottom: -15px;
+}
+
+.card h1, .card h3{
+    margin: 10px;
+    z-index: 100;
+}
+
+.card h1{
+    font-size: 2rem;
+}
+
+.card h3{
+    font-size: 1rem;
+    font-weight: 300;
+    margin-top: 5px;
+}
+
+form{
+    width: 350px;
+    margin-top: 20px;
+}
+
+form .search{
+    background-color: var(--primary-color);
+    width: 350px;
+    height: 70px;
+    border-radius: 12px 12px 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search input{
+    outline: 2px solid white;
+    border: none;
+    background: none;
+    height: 30px;
+    width: 270px;
+    border-radius: 4px 0 0 4px;
+    color: white;
+}
+
+::placeholder {
+    color: white;
+    opacity: .5; 
+    margin: 5px;
+  }
+  
+  ::-ms-input-placeholder { 
+    color: white;
+    opacity: .5; 
+    margin: 5px;
+  }
+
+  ::-webkit-input-placeholder {
+    color: white;
+    opacity: .5; 
+    margin: 5px;
+}
+.search button{
+    height: 30px;
+    outline: 2px solid white;
+    background: white;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    font-size: .7rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.results{
+    position: relative;
+    background-color: var(--component-bg);
+    border-radius: 0 0 12px 12px;
+    margin-top: 0;
+    height: 150px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.results::-webkit-scrollbar{
+    width: 5px;
+}
+
+.results::-webkit-scrollbar-thumb{
+    background-color: var(--primary-color);
+    border-radius: 4px;
+    margin: 5px;
+}
+
+.results::-webkit-scrollbar-track{
+    border-radius: 4px;
+    margin: 5px;
+    width: 10px;
+}
+
+
+.tile{
+    padding-block: 10px;
+    margin-inline: 10px;
+    cursor: pointer;
+    border-bottom: 1px rgba(216, 216, 216, 0.779) solid;
+}
+.tile p{
+    font-size: .8rem;
+}
+
+.filters{
+    background: white;
+    padding: 3px;
+}
+
+.filter{
+    background-color: var(--primary-color);
+    border: none;
+    padding: 5px;
+    border-radius: 4px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+
+@media screen and (max-width: 600px){
+    .card{
+        width: 290px;
+        height: 200px;
+    }
+
+    .card h1{
+        font-size: 1.8rem;
+    }
+    
+    .card h3{
+        font-size: .8rem;
+    }
+
+    .icon{
+        height: 60px;
+        right: 3px;
+        bottom: 0px;
+    }
+
+    .card .bg{
+        height: 400px;
+    }
+
+    .card p{
+        font-size: .44rem;
+    }
+    
+}
